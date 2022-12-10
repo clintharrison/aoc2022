@@ -1,0 +1,8 @@
+{
+    "sorbet.enabled": true,
+    "ruby.useLanguageServer": true,
+    "ruby.format": "rubyfmt",
+    "[ruby]": {
+        "editor.formatOnSave": true
+    }
+}

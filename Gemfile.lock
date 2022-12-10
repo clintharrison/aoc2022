@@ -1,0 +1,24 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coderay (1.1.3)
+    method_source (1.0.0)
+    pry (0.14.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    sorbet (0.5.10461)
+      sorbet-static (= 0.5.10461)
+    sorbet-runtime (0.5.10461)
+    sorbet-static (0.5.10461-universal-darwin-20)
+
+PLATFORMS
+  arm64-darwin-20
+  universal-darwin-21
+
+DEPENDENCIES
+  pry (~> 0.14.1)
+  sorbet
+  sorbet-runtime
+
+BUNDLED WITH
+   2.3.26
