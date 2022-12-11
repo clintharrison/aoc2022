@@ -1,5 +1,7 @@
 # typed: strict
 require "sorbet-runtime"
+require "pry"
+require "set"
 
 class ::Object
   extend T::Sig
