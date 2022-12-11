@@ -1,6 +1,7 @@
 # typed: strict
 require "sorbet-runtime"
 require "pry"
+require "pry-byebug"
 require "set"
 
 class ::Object
@@ -46,9 +47,9 @@ class BaseSolution
       exit(1)
     end
 
+    puts("Running for #{day}!")
     puts(
       <<~END
-          Running for #{day}!
         ### Sample input ###
         Part 1:
         #{part1(sample_input)}
