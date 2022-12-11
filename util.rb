@@ -56,6 +56,11 @@ class BaseSolution
       END
     )
 
+    if ARGV[0] == "skip"
+      puts("skipping real run...")
+      return
+    end
+
     if File.exists?(filename)
       puts(
         <<~END
