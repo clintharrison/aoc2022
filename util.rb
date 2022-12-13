@@ -40,47 +40,60 @@ class BaseSolution
     File.basename($0, ".rb")
   end
 
-  sig { void }
-  def run
-    if !File.exists?(filename(sample = true))
-      puts("Expected the sample input #{filename(true)} to exist, exiting...")
-      exit(1)
-    end
+  sig { params(sample: T::Boolean).void }
+  def run(sample:)
+    if sample
+      if !File.exists?(filename(sample))
+        puts("Expected the sample input #{filename(true)} to exist, exiting...")
+        exit(1)
+      end
 
-    puts("Running for #{day}!")
-    puts(
-      <<~END
-        ### Sample input ###
-        Part 1:
-        #{part1(sample_input)}
-        ----------
-        Part 2:
-        #{part2(sample_input)}
-      END
-    )
+      puts(
+        <<~END
+          ### Sample input ###
+          Part 1:
+        END
+      )
+      puts(part1(sample_input))
+      puts(
+        <<~END
+          ----------
+          Part 2:
+        END
+      )
+      puts(part2(sample_input))
+    else
+      if !File.exists?(filename(sample))
+        puts("Expected the real input #{filename(true)} to exist, exiting...")
+        exit(1)
+      end
+
+      puts(
+        <<~END
+          ### Real input ###
+          Part 1:
+        END
+      )
+      puts(part1(input))
+      puts(
+        <<~END
+          ----------
+          Part 2:
+        END
+      )
+      puts(part2(input))
+    end
+  end
+
+  sig { void }
+  def self.run
+    self.new.run(sample: true)
 
     if ARGV[0] == "skip"
       puts("skipping real run...")
       return
     end
 
-    if File.exists?(filename)
-      puts(
-        <<~END
-
-          ### Real input ###
-          Part 1:
-          #{part1(input)}
-          ----------
-          Part 2:
-          #{part2(input)}
-        END
-      )
-    end
-  end
-
-  sig { void }
-  def self.run
-    self.new.run
+    self.new.run(sample: false)
   end
 end
